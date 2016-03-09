@@ -1,0 +1,11 @@
+make
+make kernelversion
+make modules_install
+make firmware_install
+cp arch/x86_64/boot/bzImage /boot/vmlinuz-3.15.0-rc4+
+cp .config /boot/config-3.15.0-rc4+ 
+cp System.map /boot/System.map-3.15.0-rc4+ 
+ln -sf /boot/System.map-3.15.0-rc4+ /boot/System.map
+mkinitrd --force /boot/initramfs-3.15.0-rc4+.img 3.15.0-rc4+ 
+grub2-mkconfig -o /boot/grub2/grub.cfg
+reboot
