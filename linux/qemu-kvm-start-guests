@@ -1,0 +1,1 @@
+qemu-kvm -smp 4 -m 1792 -vga std -hda fedora_rawhide_new_amd64.qcow2 -net nic -net user -localtime -redir tcp:5003::22 -serial file:qemu-kvm.log
